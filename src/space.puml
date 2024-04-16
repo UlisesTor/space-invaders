@@ -15,7 +15,7 @@ Class puntuacion
 Class Nivel
 Class jugador
 
-Juego "1"*--"*"Nivel
+Juego "1" *--"*" Nivel
 Nivel *-- Alien
 Nivel -- Barrera
 Nivel -- Cañon

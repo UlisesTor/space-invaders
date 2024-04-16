@@ -1,27 +1,27 @@
-#include<ftxui/dom/node.hpp>
-#include<ftxui/screen/screen.hpp>
-#include<ftxui/screen/string.hpp>
-
-
-using namespace ftxui;
-
-
-int main() {
-
-
-    //Crea los elementos del interfaz de usuario
-    Element label= text ("Hola mundo!");
-    Element container =hbox({label});
-     
-
-    //Crea la pantalla y establece 
-    autoscreen = screen::Create(
-        Dimension :: Full(),
-        Dimension::Fit(container)
-
-    );
-    Render(screen,container);
-    screen.Print();
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/screen.hpp>
+#include <iostream>
+ 
+int main(void) {
+  using namespace ftxui;
+ 
+  // Define the document
+  Element document =
+    hbox({
+      text("left")   | border,
+      text("middle") | border | flex,
+      text("right")  | border,
+    });
+ 
+  auto screen = Screen::Create(
+    Dimension::Full(),       // Width
+    Dimension::Fit(document) // Height
+  );
+  Render(screen, document);
+  screen.Print();
+ 
+  return EXIT_SUCCESS;
+}
 
     return 0;
      

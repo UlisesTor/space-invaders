@@ -23,6 +23,17 @@ int main(int argc, char const *argv[])
     pantalla.ResentPosition();
 
     this_thread::sleep_for(0.1s);
+  
+    fotograma ++;
+    Element lienzo = hbox({spinner(21,1)|bold});
+
+
+    Element personaje + spinner(21,fotogram)    
+ 
+    
+
+
+
 
 
     return 0;

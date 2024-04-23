@@ -1,6 +1,12 @@
 #include  <iostream>
+#include <string>
+#include <thread>
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/scren.hpp>
+#include <ftxui/screen/string.hpp>
+#include <ftxui/screen/terminal.hpp>
+#include <fstream>//Nos permite hacer flujo de datos de archivos
+
 using namespace std;
 using namespace ftxui;
 
@@ -8,33 +14,40 @@ using namespace ftxui;
 //(Generador de imagen)
 int main(int argc, char const *argv[])
 {
-    Element lienzo = hbox({
-        spinner(1,1)     bold 
-    });
+    fstream archivo;
 
-    Screen pantalla = Screen::Create(
-        Dimension::Full(),
-        Dimension::Full()
-    );
+    archivo.open("./assets/images/canon.txt");
+    string canon;
+    archivo >> canon;
+    archivo.close();
+
+    archivo.open("./assts/images/alien.txt");
+    string alien;
+    archivo >> alien;
+    archivo.close();
+
+    int fotograma =0;
+    while (true)
+    {
+        fotograma++;
+        Element personaje = spinner(21, fotograma) | bold | color(Color::Yellow1) | bgcolor(color::Green1);
+        Element tanque = text(canon) | bold | color(Color::Green) | bgcolor(Color::Blue);
+        Element lienzo = hbox({personaje, tanque});
 
 
-    Render(pantalla,lienzo);//Tomar lo que esta dentro del lienzo y dibujalo dentro de la pantalla
-    pantalla.Print();
-    pantalla.ResentPosition();
-
-    this_thread::sleep_for(0.1s);
-  
-    fotograma ++;
-    Element lienzo = hbox({spinner(21,1)|bold});
+        Screen pantalla = Screen::Create(
+            Dimension::Full(),
+            Dimension::Fit(lienzo));
 
 
-    Element personaje + spinner(21,fotogram)    
- 
+        Render(pantalla, lienzo);
+        pantalla.Print();
+        cout<<pantalla.ResentPosition();
+
+        this_thread::sleep_for(0,1s);
+
+}
     
-
-
-
-
-
+    
     return 0;
 }

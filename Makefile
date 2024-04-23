@@ -7,6 +7,6 @@ bin/space: src/main.cpp
 
  run : bin/test
      ./bin/test
-run     
-
+runTest : bin/test
+	./bin/test
 	  

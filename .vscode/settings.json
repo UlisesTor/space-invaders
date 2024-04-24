@@ -1,6 +1,8 @@
 {
  "files.associations": {
-    "chorono":"cpp",
+    "chorono": "cpp",
     "algorithm":"cpp"
- }
+    "algorithm": "cpp",
+    "iosfwd": "cpp"
 }
+ }

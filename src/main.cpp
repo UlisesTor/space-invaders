@@ -2,7 +2,7 @@
 #include <string>
 #include <thread>
 #include <ftxui/dom/elements.hpp>
-#include <ftxui/screen/scren.hpp>
+#include <ftxui/screen/screen.hpp>
 #include <ftxui/screen/string.hpp>
 #include <ftxui/screen/terminal.hpp>
 #include <fstream>//Nos permite hacer flujo de datos de archivos
@@ -30,7 +30,7 @@ int main(int argc, char const *argv[])
     while (true)
     {
         fotograma++;
-        Element personaje = spinner(21, fotograma) | bold | color(Color::Yellow1) | bgcolor(color::Green1);
+        Element personaje = spinner(21,fotograma) | bold | color(Color::Yellow1) | bgcolor(color::Green1);
         Element tanque = text(canon) | bold | color(Color::Green) | bgcolor(Color::Blue);
         Element lienzo = hbox({personaje, tanque});
 

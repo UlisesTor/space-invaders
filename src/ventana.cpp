@@ -1,30 +1,50 @@
 #include <iostream>
 #include <ftxui/component/component.hpp>
 #include <ftxui/component/screen_interactive.hpp>
-
+#include <thread>
 using namespace std;
 using namespace ftxui;
 
 int main(int argc, char const *argv[])
 
-{
-   auto pantalla= Screen::Create(Dimension::Fixed(10),Dimension::Fixed(10));
-   Render(pantalla,border(text("Hola")));
-   pantalla.PixelAt(5,5).charter= 'm';
-   panatalla.Print();
+{     int posicionInicialX = 0;
+      int posicionInicialY = 0;
 
-   string prueba= "Otro";
-   int posicionInicial=0;
-   int posicionX=0;
-   int posicionY=0;
-   for (auto &&letra : prueba)
-   {
-        pantalla.PixelAt(posicionX,posicionY).character=letra;
-        posicionX++;
-        
-   } 
+        string palabra = "DVD";
+          
+          while(true){
+                this_thread::sleep_for(0.1s);
+
+               int posicionPalabraX = 0;
+               int posicionPalabraY = 0;
+
+               auto Pantalla = Screen::Create(Dimension::Full(),Dimension::Full());
+              
+              for (auto &&letra : palabra)
+              {
+                int posicionFinalX = posicionFinalX + posicionPalabraX;
+                int posicionFinalY=  posicionFinalY + posicionPalabraY;
 
 
+                 auto Pantalla = Screen::Create(Dimension::Full(),Dimension::Full());
 
-    return 0;
+                Pantalla.PixelAt(
+                  posicionFinalX,
+                  posicionFinalY
+                  ).character = letra;
+                  posicionPalabraX++;
+
+              }
+              Pantalla.Print();
+              Pantalla.Clear();
+              cout<<Pantalla.ResentPosition();
+
+              posicionInicialX++;
+              posicionInicialY++;
+              
+               
+
+
+     }
+     return 0;
 }

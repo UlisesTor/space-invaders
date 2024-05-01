@@ -3,7 +3,7 @@
 using namespace std;
 using namespace ftxui;
 
-class Dibujo
+class Archivo
 {
 private:
     fstream archivo;
@@ -13,7 +13,7 @@ public:
     {
         archivo.open(path);
         Elements lineas;
-        while (archivo.eof())
+        while (!  archivo.eof())
         {
             string linea;
             getline(archivo, linea);

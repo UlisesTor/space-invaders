@@ -1,7 +1,11 @@
 #include <iostream>
-#include <ftxui/component/component.hpp>
-#include <ftxui/component/screen_interactive.hpp>
+#include <string>
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/screen.hpp>
+#include <Dibujo.hpp>
 #include <thread>
+#include <list>
+#include <experimental/random>
 using namespace std;
 using namespace ftxui;
 

@@ -1,8 +1,7 @@
 {
- "files.associations": {
-    "chorono": "cpp",
-    "algorithm":"cpp"
-    "algorithm": "cpp",
-    "iosfwd": "cpp"
+    "files.associations": {
+        "chrono": "cpp",
+        "algorithm": "cpp",
+        "iosfwd": "cpp"
+    }
 }
- }
